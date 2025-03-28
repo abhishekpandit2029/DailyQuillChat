@@ -12,7 +12,7 @@ export default withAuth(
 
     const sensitiveRoutes = ["/dashboard"];
     const isAccessingSensitiveRoute = sensitiveRoutes.some((route) =>
-      pathname?.startsWith(route),
+      pathname?.includes(route),
     );
 
     if (isLoginPage) {
