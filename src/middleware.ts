@@ -8,11 +8,11 @@ export default withAuth(
 
     // Manage route protection
     const isAuth = await getToken({ req });
-    const isLoginPage = pathname?.includes("/login");
+    const isLoginPage = pathname?.startsWith("/login");
 
     const sensitiveRoutes = ["/dashboard"];
     const isAccessingSensitiveRoute = sensitiveRoutes.some((route) =>
-      pathname?.includes(route),
+      pathname?.startsWith(route),
     );
 
     if (isLoginPage) {
